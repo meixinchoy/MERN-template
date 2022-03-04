@@ -11,7 +11,7 @@ const router= require("./routes/index")
 const app = express();
 
 //connect to mdb atlas
-dbConfig.connectMDB()
+// dbConfig.connectMDB()
 
 // Use your dependencies here
 app.use(bodyParser.urlencoded({ extended: false }));

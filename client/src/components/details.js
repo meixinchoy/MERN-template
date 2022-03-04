@@ -14,17 +14,18 @@ export default class Details extends Component {
     }
 
     componentDidMount() {
-        axios.get(baseURL+ "getData").then(res => {
+        axios.get(baseURL + "getData").then(res => {
             this.setState({
                 data: res.data
             });
+            console.log(res.data)
         });
     }
 
     getDetails() {
-            this.setState({
-                buttonClicked: !this.state.buttonClicked
-            });
+        this.setState({
+            buttonClicked: !this.state.buttonClicked
+        });
     }
 
     render() {
@@ -32,22 +33,19 @@ export default class Details extends Component {
             <div className="container-fluid" style={{ marginTop: "30px" }}>
                 <div className="row">
                     <div className="col-xs-12" style={{ textAlign: " center" }}>
-                    <button
-                        className="btn btn-primary"
-                        style={{ position: "absolute", marginLeft: "48.2%" }}
-                        onClick={this.getDetails}
-                    >
-                        Click
-                    </button>
-                    <div
-                        className="container-fluid"
-                        style={{
-                            position: "absolute",
-                            textAlign: "center",
-                            marginTop: "50px"
-                        }}
-                    >
-                        {this.state.buttonClicked? this.state.data.map(data => {
+                        <button
+                            className="btn btn-primary"
+                            onClick={this.getDetails}
+                        >
+                            Click
+                        </button>
+                        <div
+                            className="container-fluid"
+                            style={{
+                                textAlign: "center",
+                            }}
+                        >
+                            {this.state.buttonClicked ? this.state.data.map(data => {
                                 return (
                                     <React.Fragment>
                                         <p>
@@ -60,11 +58,11 @@ export default class Details extends Component {
                                     </React.Fragment>
                                 );
                             })
-                            : null}
+                                : null}
+                        </div>
                     </div>
                 </div>
-            </div>
-      </div >
-    );
+            </div >
+        );
     }
 }

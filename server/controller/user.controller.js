@@ -1,22 +1,23 @@
-import {detailModel} from "../model/detail"
+import { detailModel } from "../model/detail"
 
-const root= (req, res) => {
+const root = (req, res) => {
     res.status(200).json({
         status: 'success'
     });
 };
 
-const getData=(req,res)=>{
-    detailModel.find({}, function (err, result) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(result);
-        }
-    });
+const getData = (req, res) => {
+    return res.send([{ name: "meixin", age: "22" }])
+    // detailModel.find({}, function (err, result) {
+    //     if (err) {
+    //         res.send(err);
+    //     } else {
+    //         res.send(result);
+    //     }
+    // });
 }
 
-export default{
+export default {
     root,
     getData
 };
